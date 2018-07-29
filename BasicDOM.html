@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>
+        JQuery 基本操作
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <style>
+        hr.style-one {
+            border: 0;
+            height: 1px;
+            background: #333;
+            background-image: linear-gradient(to right, #ccc, #333, #ccc);
+        }
+    </style>
+</head>
+<body>
+    <h3>偵測某個元素的事件</h3>
+    <select id="book">
+        <option value="1">第 1 個</option>
+        <option value="2">第 2 個</option>
+        <option value="3">第 3 個</option>
+    </select>
+    <script>
+        $("#book").on("change", function() { alert($("#book").val()); })
+    </script>
+    <hr class="style-one">
+    <h3>取得元素(標籤)完整的 html </h3>
+    <div class="outside">
+        <div class="inside">hello world!</div>
+    </div>
+    <input id="getHtml" type="button" value="取得"/>
+    <script>
+        $("#getHtml").on("click", function(){ alert($(".outside").html()); })
+    </script>
+    <hr class="style-one">
+    <h3>更改元素屬性</h3>
+    <h4 id="updColor">現在是黑色?</h4>
+    <input id="updColorBtn" type="button" value="變色"/>
+    <script>
+        $("#updColorBtn").on("click", function() { $("#updColor").attr("style", "color: red"); } )
+    </script>
+    <hr class="style-one">
+    <h3>在元素後新增元素</h3>
+    <p id="append">歡樂來愛你</p>
+    <input id="appendBtn" type="button" value="append"/>
+    <script>
+        $("#appendBtn").on("click", function() { $("#append").append("<i>Javascript</i>"); })
+    </script>
+    <hr class="style-one">
+    <h3>在元素前新增元素</h3>
+    <p id="prepend">歡樂來愛你</p>
+    <input id="prependBtn" type="button" value="prepend"/>
+    <script>
+        $("#prependBtn").on("click", function() { $("#prepend").prepend("<i>Javascript</i>"); })
+    </script>
+    <hr class="style-one">
+    <h3>在元素後新增元素 - 不同區塊</h3>
+    <p id="after">歡樂來愛你</p>
+    <input id="afterBtn" type="button" value="after"/>
+    <script>
+        $("#afterBtn").on("click", function() { $("#after").after("<i>Javascript</i>"); })
+    </script>
+    <hr class="style-one">
+    <h3>在元素前新增元素 - 不同區塊</h3>
+    <p id="before">歡樂來愛你</p>
+    <input id="beforeBtn" type="button" value="before"/>
+    <script>
+        $("#beforeBtn").on("click", function() { $("#before").before("<i>Javascript</i>"); })
+    </script>
+    <hr class="style-one">
+    <h3>移除指定元素 - 完全移除</h3>
+    <div id="remove0"> 0 <p id="remove1"> 1 </p> <p id="remove2"> 2 </p> </div>
+    <input id="removeBtn" type="button" value="remove"/>
+    <script>
+        $("#removeBtn").on("click", function() { $("#remove0").remove(); })
+    </script>
+    <hr class="style-one">
+    <h3>移除指定元素 - 保留</h3>
+    <div id="empty0"> 0 <p id="empty1"> 1 </p> <p id="empty2"> 2 </p> </div>
+    <input id="emptyBtn" type="button" value="empty"/>
+    <script>
+        $("#emptyBtn").on("click", function() { $("#empty0").empty(); })
+    </script>
+    <hr class="style-one">
+    <h3> CSS 查詢樣式與修改樣式</h3>
+    <p id="selectColor">我是顏色</p>
+    <p id="resultColor">是什麼顏色?</p>
+    <input id="selectColorBtn" type="button" value="select"/>
+    <input id="changeColorBtn" type="button" value="change to red"/>
+    <script>
+        $("#selectColorBtn").on("click", function() { $("#resultColor").text($("#selectColor").css("color")); })
+        $("#changeColorBtn").on("click", function() { $("#selectColor").css("color", "red"); })
+    </script>
+    <hr class="style-one">
+    <h3>滑鼠游標</h3>
+    <h1>Hello, world!</h1>
+    <script>
+      $("h1").on("mouseenter", function(){ $(this).css({"color":"red", "text-shadow":"gray 3px 3px"}); })
+      $("h1").on("mouseleave", function(){ $(this).css({"color":"black", "text-shadow":"none"}); })
+    </script>
+     <hr class="style-one">
+</body>
+</html>
